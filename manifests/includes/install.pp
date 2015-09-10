@@ -11,13 +11,6 @@ php::pecl::module {'memcached': }
 class { 'apache::mod::php': }
 include '::apache::mod::headers'
 
-#libsasl2-dev
-#sudo apt-get install libmemcached-dev
-
-# execute 'apt-get update'
-exec { 'apt-get update':                    # exec resource named 'apt-update'
-  command => '/usr/bin/apt-get update'  # command this resource will run
-}
 
 package { 'libmemcached-dev':
    require => Exec['apt-get update'],
