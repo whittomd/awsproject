@@ -12,16 +12,4 @@ class { 'apache::mod::php': }
 include '::apache::mod::headers'
 
 
-package { 'libmemcached-dev':
-   require => Exec['apt-get update'],
-   ensure => installed,
-}
-
-package { 'libsasl2-dev':
-   require => Exec['apt-get update'],
-   ensure => installed,
-}
-
-#./configure --enable-memcached-igbinary --enable-memcached-json --disable-memcached-sasl
-
 Package["libaugeas-ruby"] -> Augeas <| |>
