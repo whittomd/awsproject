@@ -23,6 +23,9 @@ try {
     $di->set('view', function () {
         $view = new View();
         $view->setViewsDir('../app/views/');
+        $view->registerEngines(array(
+            ".phtml" => 'Phalcon\Mvc\View\Engine\Volt'
+        ));
         return $view;
     });
 
